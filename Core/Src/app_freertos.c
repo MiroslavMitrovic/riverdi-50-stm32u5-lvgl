@@ -44,27 +44,28 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-osThreadId_t lvglTimerHandle;
-const osThreadAttr_t lvglTimer_attributes = {
-  .name = "lvglTimer",
-  .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 16* 1024
-};
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
   .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 128 * 4 * 32
+  .stack_size = 4096 * 4
+};
+/* Definitions for lvglTimer */
+osThreadId_t lvglTimerHandle;
+const osThreadAttr_t lvglTimer_attributes = {
+  .name = "lvglTimer",
+  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 4096 * 4
 };
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-void LVGLTimer(void *argument);
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
+void LVGLTimer(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -141,9 +142,10 @@ void MX_FREERTOS_Init(void) {
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
+  /* creation of lvglTimer */
   lvglTimerHandle = osThreadNew(LVGLTimer, NULL, &lvglTimer_attributes);
+
+  /* USER CODE BEGIN RTOS_THREADS */
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -169,16 +171,30 @@ void StartDefaultTask(void *argument)
   /* USER CODE END defaultTask */
 }
 
-/* Private application code --------------------------------------------------*/
-/* USER CODE BEGIN Application */
-/* LVGL timer for tasks */
+/* USER CODE BEGIN Header_LVGLTimer */
+/**
+* @brief Function implementing the lvglTimer thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_LVGLTimer */
 void LVGLTimer(void *argument)
 {
+  /* USER CODE BEGIN lvglTimer */
+	for(;;)
+	{
+		lv_timer_handler();
+		osDelay(1);
+	}
+  /* Infinite loop */
   for(;;)
   {
-    lv_timer_handler();
     osDelay(1);
   }
+  /* USER CODE END lvglTimer */
 }
+
+/* Private application code --------------------------------------------------*/
+/* USER CODE BEGIN Application */
 /* USER CODE END Application */
 

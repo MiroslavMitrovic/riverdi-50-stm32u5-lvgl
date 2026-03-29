@@ -34,14 +34,11 @@ extern "C" {
 
 extern DCACHE_HandleTypeDef hdcache1;
 
-extern DCACHE_HandleTypeDef hdcache2;
-
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
 void MX_DCACHE1_Init(void);
-void MX_DCACHE2_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 

@@ -4,7 +4,7 @@
 
 LV_COLOR_DEPTH             16
 LV_MEM_SIZE                (96 * 1024U)
-LV_USE_NEMA_GFX            0
+LV_USE_NEMA_GFX            1
 LV_USE_NEMA_HAL            LV_NEMA_HAL_STM32
 LV_USE_NEMA_VG             1
 LV_NEMA_GFX_MAX_RESX       800
