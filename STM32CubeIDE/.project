@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>riverdi-50-stm32u5-lvgl</name>
+	<name>lv_riverdi_stm32u5_1</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -35,9 +35,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>riverdi-50-stm32u5-lvgl.ioc</name>
+			<name>lv_riverdi_stm32u5.ioc</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/riverdi-50-stm32u5-lvgl.ioc</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/lv_riverdi_stm32u5.ioc</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/LVGL</name>
@@ -370,11 +370,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/gpu2d.c</locationURI>
 		</link>
 		<link>
-			<name>Application/User/Core/gtzc.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/gtzc.c</locationURI>
-		</link>
-		<link>
 			<name>Application/User/Core/hash.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/hash.c</locationURI>
@@ -418,11 +413,6 @@
 			<name>Application/User/Core/mdf.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/mdf.c</locationURI>
-		</link>
-		<link>
-			<name>Application/User/Core/memorymap.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/memorymap.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/Core/mx25lm51245g.c</name>

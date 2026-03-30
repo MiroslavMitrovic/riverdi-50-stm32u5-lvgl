@@ -48,7 +48,7 @@ osThreadId_t lvglTimerHandle;
 const osThreadAttr_t lvglTimer_attributes = {
   .name = "lvglTimer",
   .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 16* 1024
+  .stack_size = 4096 * 4
 };
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
@@ -56,7 +56,7 @@ osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
   .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 128 * 4 * 32
+  .stack_size = 4096 * 4
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -138,12 +138,14 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
+  /* creation of lvglTimer */
+  lvglTimerHandle = osThreadNew(LVGLTimer, NULL, &lvglTimer_attributes);
+
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  lvglTimerHandle = osThreadNew(LVGLTimer, NULL, &lvglTimer_attributes);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */

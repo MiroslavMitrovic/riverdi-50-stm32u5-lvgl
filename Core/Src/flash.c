@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -90,3 +90,4 @@ void MX_FLASH_Init(void)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+

@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "dma2d.h"
-#include "lvgl/lvgl.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -74,10 +73,8 @@ void HAL_DMA2D_MspInit(DMA2D_HandleTypeDef* dma2dHandle)
   /* USER CODE END DMA2D_MspInit 0 */
     /* DMA2D clock enable */
     __HAL_RCC_DMA2D_CLK_ENABLE();
-    __HAL_RCC_DMA2D_FORCE_RESET();
-    __HAL_RCC_DMA2D_RELEASE_RESET();
 
-    /* Enable DMA2D global Interrupt */
+    /* DMA2D interrupt Init */
     HAL_NVIC_SetPriority(DMA2D_IRQn, 5, 0);
     HAL_NVIC_EnableIRQ(DMA2D_IRQn);
   /* USER CODE BEGIN DMA2D_MspInit 1 */
@@ -108,3 +105,4 @@ void HAL_DMA2D_MspDeInit(DMA2D_HandleTypeDef* dma2dHandle)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+

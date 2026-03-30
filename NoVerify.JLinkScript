@@ -1,0 +1,6 @@
+int SetupTarget(void) {
+  JLINK_ExecCommand("SetCompareMode = 0");     // skip pre-download compare
+  JLINK_ExecCommand("SetVerifyDownload = 0");  // skip L2 verify
+  JLINK_ExecCommand("SetSkipL1Verify = 1");    // skip L1 verify
+  return 0;
+}

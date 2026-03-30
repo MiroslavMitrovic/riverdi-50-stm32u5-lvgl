@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -31,6 +31,7 @@ void MX_USB_OTG_HS_USB_Init(void)
 
   /* USER CODE BEGIN USB_OTG_HS_Init 0 */
 
+    __HAL_RCC_SYSCFG_CLK_ENABLE();
   /* USER CODE END USB_OTG_HS_Init 0 */
 
   /* USER CODE BEGIN USB_OTG_HS_Init 1 */
@@ -45,3 +46,4 @@ void MX_USB_OTG_HS_USB_Init(void)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+

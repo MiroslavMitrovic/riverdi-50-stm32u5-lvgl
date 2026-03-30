@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -184,7 +184,7 @@ void MX_USART6_UART_Init(void)
   huart6.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart6.Init.ClockPrescaler = UART_PRESCALER_DIV1;
   huart6.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart6) != HAL_OK)
+  if (HAL_RS485Ex_Init(&huart6, UART_DE_POLARITY_HIGH, 0, 0) != HAL_OK)
   {
     Error_Handler();
   }
@@ -352,10 +352,11 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     __HAL_RCC_GPIOE_CLK_ENABLE();
     __HAL_RCC_GPIOJ_CLK_ENABLE();
     /**USART6 GPIO Configuration
+    PE4     ------> USART6_DE
     PE1     ------> USART6_TX
     PJ4     ------> USART6_RX
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_1;
+    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_1;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -447,10 +448,11 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
     __HAL_RCC_USART6_CLK_DISABLE();
 
     /**USART6 GPIO Configuration
+    PE4     ------> USART6_DE
     PE1     ------> USART6_TX
     PJ4     ------> USART6_RX
     */
-    HAL_GPIO_DeInit(GPIOE, GPIO_PIN_1);
+    HAL_GPIO_DeInit(GPIOE, GPIO_PIN_4|GPIO_PIN_1);
 
     HAL_GPIO_DeInit(GPIOJ, GPIO_PIN_4);
 
@@ -463,3 +465,4 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+

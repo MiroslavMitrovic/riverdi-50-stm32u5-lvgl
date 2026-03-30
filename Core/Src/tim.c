@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -49,7 +49,7 @@ void MX_TIM3_Init(void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 4.294967295E9;
+  htim3.Init.Period = 4294967295;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
@@ -120,7 +120,7 @@ void MX_TIM5_Init(void)
   htim5.Instance = TIM5;
   htim5.Init.Prescaler = 0;
   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim5.Init.Period = 4.294967295E9;
+  htim5.Init.Period = 4294967295;
   htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim5) != HAL_OK)
@@ -439,12 +439,12 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
     /**TIM3 GPIO Configuration
     PE5     ------> TIM3_CH3
     */
-//    GPIO_InitStruct.Pin = USR_LED_1_Pin;
-//    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//    GPIO_InitStruct.Pull = GPIO_NOPULL;
-//    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-//    GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
-//    HAL_GPIO_Init(USR_LED_1_GPIO_Port, &GPIO_InitStruct);
+    GPIO_InitStruct.Pin = GPIO_PIN_5;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
+    HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /* USER CODE BEGIN TIM3_MspPostInit 1 */
 
@@ -542,7 +542,7 @@ void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* tim_pwmHandle)
     */
     HAL_GPIO_DeInit(GPIOC, GPIO_PIN_7);
 
-//    HAL_GPIO_DeInit(USR_LED_1_GPIO_Port, USR_LED_1_Pin);
+    HAL_GPIO_DeInit(GPIOE, GPIO_PIN_5);
 
   /* USER CODE BEGIN TIM3_MspDeInit 1 */
 
@@ -617,3 +617,4 @@ void HAL_TIM_OC_MspDeInit(TIM_HandleTypeDef* tim_ocHandle)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+
