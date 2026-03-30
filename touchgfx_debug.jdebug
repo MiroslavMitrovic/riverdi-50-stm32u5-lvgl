@@ -34,7 +34,7 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  File.Open ("$(ProjectDir)/STM32CubeIDE/Debug/lv_riverdi_stm32u5_1.elf");
+  File.Open ("$(ProjectDir)/STM32CubeIDE/Debug/lv_riverdi_stm32u5.elf");
 }
 
 /*********************************************************************
