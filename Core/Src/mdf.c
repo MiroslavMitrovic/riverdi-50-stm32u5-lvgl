@@ -154,3 +154,4 @@ void HAL_MDF_MspDeInit(MDF_HandleTypeDef* mdfHandle)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+

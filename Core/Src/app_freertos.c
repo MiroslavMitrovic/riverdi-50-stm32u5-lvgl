@@ -44,13 +44,15 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
+
+/* USER CODE END Variables */
+/* Definitions for lvglTimer */
 osThreadId_t lvglTimerHandle;
 const osThreadAttr_t lvglTimer_attributes = {
   .name = "lvglTimer",
   .priority = (osPriority_t) osPriorityNormal,
   .stack_size = 4096 * 4
 };
-/* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
@@ -153,6 +155,13 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_EVENTS */
 
 }
+/* USER CODE BEGIN Header_LVGLTimer */
+/**
+* @brief Function implementing the lvglTimer thread.
+* @param argument: Not used
+* @retval None
+*/
+
 /* USER CODE BEGIN Header_StartDefaultTask */
 /**
 * @brief Function implementing the defaultTask thread.

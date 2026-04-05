@@ -396,3 +396,4 @@ int32_t OSPI_NOR_EnableMemoryMappedMode(OSPI_HandleTypeDef *hospi)
   return ret;
 }
 /* USER CODE END 1 */
+
